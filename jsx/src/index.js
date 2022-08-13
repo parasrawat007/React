@@ -2,19 +2,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const getButtontext=()=>{
-    return 'Click On Me !'
-}
-
 //Create a React Component
 const App = () => {
-    const buttonText='Click Me!';
+    // const buttonText='Click Me!';
+    // const buttonText=[10,20];
+    // const buttonText=['Hello ' ,'World!!'];
+    const buttonText = { text: "Click Me" };
+    const style = { backgroundColor: 'blue', color: 'white' };
+
     return (
         <div>
             <label className='label' for='name'>Name :</label>
             <input id='name' type='text' />
-            {/* <button style={{ backgroundColor: 'blue', color: 'white' }}>{buttonText}</button> */}
-            <button style={{ backgroundColor: 'blue', color: 'white' }}>{getButtontext()}</button>
+            <button style={style}>
+                {buttonText.text}
+            </button>
         </div>
     );
 };
