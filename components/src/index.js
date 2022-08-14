@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import {faker} from '@faker-js/faker';
-
-const App =()=>{
-    
+import CommentDetail from './CommentDetail'
+const App = () => {
+    return (
+        <div className='ui container comments'>
+            <CommentDetail />
+        </div>
+    );
 }
 
 ReactDom.render(
-    <App/>,
+    <App />,
     document.getElementById('root')
 );
