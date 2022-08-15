@@ -5,8 +5,7 @@ import Spinner from './Spinner';
 class App extends React.Component {
 
     state = { lat: null, errorMessage: '' };
-
-    render() {
+    renderContent=()=>{
         if (this.state.errorMessage && !this.state.lat) {
             return (
                 <div>
@@ -24,6 +23,13 @@ class App extends React.Component {
 
         return (
                <Spinner message='Please accept the location request'/>
+        );
+    }
+    render() {
+        return (
+            <div className='border red'>
+                {this.renderContent()}
+            </div>
         );
     }
 
