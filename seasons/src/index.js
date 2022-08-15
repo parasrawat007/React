@@ -48,6 +48,12 @@ class App extends React.Component {
             </div>
         );
     }
+    componentDidMount(){
+        console.log('Component was rendered to screen');
+    }
+    componentDidUpdate(){
+        console.log('Component was just updated it rendered');
+    }
 }
 ReactDOM.render(
     <App />,
