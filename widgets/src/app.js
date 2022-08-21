@@ -1,21 +1,23 @@
 import React from 'react';
 import Accordion from './components/Accordions';
+import Search from './components/Search';
 
-const items=[
+const items = [
     {
-        title:'What is React?',
-        content:'React is a Frontend Js Farmework'
+        title: 'What is React?',
+        content: 'React is a Frontend Js Farmework'
     },
     {
-        title:'Why use React?',
-        content:'React is a favourite JS libaray among engineers'
+        title: 'Why use React?',
+        content: 'React is a favourite JS libaray among engineers'
     },
     {
-        title:'How do you use React?',
-        content:'We use React by creating component'
+        title: 'How do you use React?',
+        content: 'We use React by creating component'
     }
 ];
 
-export default ()=>{
-    return <Accordion items={items}/>
+export default () => {
+    // return <Accordion items={items} />
+    return <Search/>;
 }
