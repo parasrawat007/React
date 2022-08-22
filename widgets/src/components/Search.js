@@ -1,24 +1,35 @@
 import React, { useState, useEffect } from 'react';
-
+import axios from 'axios';
 const Search = () => {
 
     const [term, setTerm] = useState('');
 
-    console.log('I Run With Every Render');
+
+    // useEffect(async() => {                                   ########## Invalid
+    //     const search = await axios.get('');
+    //     search();
+    // }, [term]);
+
 
     // useEffect(() => {
-    //     console.log('I Only Run Once');
-    // }, []);
+    //     const search = async () => {
+    //         await axios.get('');
+    //     }
+    //     search();
+    // }, [term]);
 
     // useEffect(() => {
-    //     console.log('I Run After Every Render and  at Initial Render');
-    // });
+    //     (async () => {
+    //         await axios.get('');
+    //     })();
+    // }, [term]);
 
-    // useEffect(() => {
-    //     console.log('I Run After Every Render when data changes');
-    // },[term,termTwo]);
-
-
+    useEffect(() => {
+        axios.get('')
+        .then((response)=()=>{
+            console.log(response.data);
+        });
+    }, [term]);
     return (
         <div className='ui form'>
             <div className='feild'>
