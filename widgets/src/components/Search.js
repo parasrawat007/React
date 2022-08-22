@@ -4,32 +4,21 @@ const Search = () => {
 
     const [term, setTerm] = useState('');
 
-
-    // useEffect(async() => {                                   ########## Invalid
-    //     const search = await axios.get('');
-    //     search();
-    // }, [term]);
-
-
-    // useEffect(() => {
-    //     const search = async () => {
-    //         await axios.get('');
-    //     }
-    //     search();
-    // }, [term]);
-
-    // useEffect(() => {
-    //     (async () => {
-    //         await axios.get('');
-    //     })();
-    // }, [term]);
-
     useEffect(() => {
-        axios.get('')
-        .then((response)=()=>{
-            console.log(response.data);
-        });
+        const search = async () => {
+            await axios.get('https://en.wikipedia.org/w/api.php',{
+                params:{
+                    action:'query',
+                    list:'search',
+                    origin:'*',
+                    format:'json',
+                    srsearch:term
+                }
+            });
+        }
+        search();
     }, [term]);
+
     return (
         <div className='ui form'>
             <div className='feild'>
