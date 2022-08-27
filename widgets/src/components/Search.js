@@ -7,32 +7,26 @@ const Search = () => {
     const [results, setResults] = useState([]);
     console.log(results);
     useEffect(() => {
-        // const search = async () => {
-        //     const { data } = await axios.get('https://en.wikipedia.org/w/api.php', {
-        //         params: {
-        //             action: 'query',
-        //             list: 'search',
-        //             origin: '*',
-        //             format: 'json',
-        //             srsearch: term
-        //         }
-        //     });
-        //     setResults(data.query.search);
-        // }
-        // const timeoutId = setTimeout(() => {
-        //     if (term) {
-        //         search();
-        //     }
-        // }, 500);
+        const search = async () => {
+            const { data } = await axios.get('https://en.wikipedia.org/w/api.php', {
+                params: {
+                    action: 'query',
+                    list: 'search',
+                    origin: '*',
+                    format: 'json',
+                    srsearch: term
+                }
+            });
+            setResults(data.query.search);
+        }
+        const timeoutId = setTimeout(() => {
+            if (term) {
+                search();
+            }
+        }, 500);
         
-        /*
-            Initially Func provided to use effect is called and then returned fuction is called
-            next time retuned fuction is called and then Func provided to use effect is called 
-        
-        */
-        console.log('Initial render or the term was changed');
         return ()=>{
-            console.log('Clean Up');
+            clearTimeout(timeoutId);
         };
     }, [term]);
 
